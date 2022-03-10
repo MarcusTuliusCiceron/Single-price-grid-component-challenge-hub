@@ -1,0 +1,261 @@
+@import "mixin";
+@import "variables";
+
+html{
+    font-size: 100%;
+    box-sizing: border-box;
+    min-height: 100vh;
+    line-height: 1;
+    font-family: 'Manrope', sans-serif;
+    font-weight: 500;
+    overflow-y: hidden;
+}
+
+*, *::before, *::after { 
+    box-sizing: inherit;
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+    flex-direction: column ;
+    align-content: center ;
+    background-color: $lightGrayishBlue;
+}
+.container{
+    margin: auto;
+    display: flex;
+    position: relative;
+}
+
+.card{
+    background-color: white;
+    width: 730px;
+    height: 280px;
+    margin: auto;
+    display: flex;
+    border-radius: 10px;
+    overflow: hidden;
+    position: relative;
+
+    @include breakpoint-down(small){
+        flex-direction: column;
+        width: 327px;
+        height: 512px;
+    }
+    &__image{
+        min-width: 285px;
+        height: 100%;
+        background-image: url(drawers.jpg);
+        background-size: cover;
+        @include breakpoint-down(small){
+            height: 199px;
+        }
+    }
+    &__text{
+        padding: 42px;
+        @include breakpoint-down(small){
+            padding: 30px;
+            padding-top: 40px;
+        }
+        h1{
+            font-size: 20px;
+            line-height: 1.15;
+            color: $veryDarkGrayishBlue;
+            margin-bottom: 18px;
+            font-weight: 700;
+            @include breakpoint-down(small){
+                font-size: 17px;
+            }
+            
+        }
+        p{
+            font-size: 15px;
+            color: $desaturatedDarkBlue;
+            line-height: 1.2;
+            margin-bottom: 20px;
+            @include breakpoint-down(small){
+                margin-bottom: 34px;
+            }
+        }
+        &__author{
+            display: flex;
+            &__portrait{
+                background-image: url(avatar-michelle.jpg);
+                width: 41px;
+                height: 41px;
+                background-size: cover;
+                border-radius: 50%;
+                margin-right: 17px;
+            }
+            &__info{
+                margin-right: 140px;
+                @include breakpoint-down(small){
+                    margin-right: 45px;
+                }
+                p{
+                    margin: 0;
+                }
+                .name{
+                    color: $veryDarkGrayishBlue;
+                    font-weight: 700;
+                }
+            }
+            &__share{
+                background-image: url(icon-share.svg);
+                width: 32px;
+                height: 32px;
+                background-repeat: no-repeat;
+                background-color: $lightGrayishBlue;
+                background-position: center;
+                border-radius: 50%;
+                &:hover{
+                    cursor: pointer;
+                }
+                @include breakpoint-down(small){
+                    display: none;
+                }
+            }
+            &__share__mobile{
+                background-image: url(icon-share.svg);
+                width: 32px;
+                height: 32px;
+                background-repeat: no-repeat;
+                background-color: $lightGrayishBlue;
+                background-position: center;
+                border-radius: 50%;
+                display: none;
+                &:hover{
+                    cursor: pointer;
+                }
+                @include breakpoint-down(small){
+                    display: block;
+                }
+            }
+        }
+    }
+    &__sharemenu__dt{
+        display: none;
+        position: absolute;
+        &__pointer{
+            position: relative;
+            width: 17px;
+            height: 17px;
+            transform: rotate(45deg);
+            background-color: $veryDarkGrayishBlue;
+            left: 664px;
+            bottom: -179px;
+        }
+        &__box{
+            position: relative;
+            width: 250px;
+            height: 55px;
+            background-color: $veryDarkGrayishBlue;
+            color: white;
+            display: flex;
+            align-items: center;
+            border-radius: 15px;
+            left: 551px;
+            bottom: -115px;
+            justify-content: space-around;
+            padding-left: 20px;
+            padding-right: 20px;
+
+            p{
+                text-transform: uppercase;
+            }
+            &__fb{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-facebook.svg);
+                background-size: cover;
+                
+            }
+            &__tw{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-twitter.svg);
+                background-size: cover;
+                
+            }
+            &__pt{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-pinterest.svg);
+                
+            }
+            &.active{
+                display: block;
+            }
+        }
+    }
+    &__sharemenu__mobile{
+        display: none;
+        position: absolute;
+        &__box{
+            position: relative;
+            width: 325px;
+            height: 80px;
+            background-color: $veryDarkGrayishBlue;
+            color: white;
+            display: flex;
+            align-items: center;
+            bottom: -436px;
+            
+            padding-left: 30px;
+            padding-right: 30px;
+
+            p{
+                text-transform: uppercase;
+                margin-right: 21px;
+            }
+            &__fb{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-facebook.svg);
+                background-size: cover;
+                margin-right: 21px;
+                
+            }
+            &__tw{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-twitter.svg);
+                background-size: cover;
+                margin-right: 21px;
+            }
+            &__pt{
+                height: 20px;
+                width: 20px;
+                background-image: url(icon-pinterest.svg);
+                background-size: cover;
+                margin-right: 55px;
+            }
+            &__share{
+                height: 30px;
+                width: 30px;
+                background-image: url(icon-share-copy.svg);
+                background-color: $desaturatedDarkBlue;
+                background-position: center;
+                background-repeat: no-repeat;
+                border-radius: 50%;
+                &:hover{
+                    cursor: pointer;
+                }
+                
+            }
+            &.active{
+                display: block;
+            }
+        }
+    }   
+}
+.active{
+    display: block;
+}
+.active_share_button_dt{
+    background-image: url(icon-share-copy.svg);
+    background-color: $veryDarkGrayishBlue;
+}
